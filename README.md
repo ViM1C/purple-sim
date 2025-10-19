@@ -34,3 +34,25 @@ python .\summarize.py
   "host": "WIN-LAB-01",
   "user": "corp\\alice"
 }
+
+## Device Mode (ESP32-S3 — LilyGo T-Dongle)
+
+PurpleSim can also run on a tiny microcontroller to emit ATT&CK-style telemetry over **serial**.
+
+**Folder:** `device/`  
+**Board:** LilyGo T-Dongle (ESP32-S3)  
+**Firmware:** MicroPython  
+**Output:** Pretty-printed JSON events in the serial console (no network required)
+
+### Quick Start (device)
+1. Copy the files in `device/` to the board (e.g., with Thonny).
+2. Rename `device/secrets.py.example` → `secrets.py` **on the device only** (do not commit `secrets.py`).
+3. Soft-reboot the board. You’ll see a banner and three events:
+   - `ProcessCreate` (T1059)
+   - `NetworkConnect` (T1071)
+   - `FileWrite` (T1003)
+
+> The desktop simulator (`simulator.py`) is unchanged. Use it for JSONL outputs.  
+> Device mode is a minimal, serial-only demo suitable for screenshots and demos.
+
+
