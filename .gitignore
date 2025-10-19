@@ -2,3 +2,4 @@
 events.jsonl
 __pycache__/
 *.pyc
+device/secrets.py
