@@ -22,3 +22,15 @@ python .\simulator.py .\scenarios\credential_probe.json 0.5
 
 # Summarize the results
 python .\summarize.py
+
+📁 Example Output
+{
+  "event_id": "uuid",
+  "ts": "2025-10-19T15:11:56Z",
+  "scenario": "Credential Probe (synthetic)",
+  "event_type": "ProcessCreate",
+  "tactic": "Execution",
+  "technique_id": "T1059",
+  "host": "WIN-LAB-01",
+  "user": "corp\\alice"
+}
