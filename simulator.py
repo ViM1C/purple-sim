@@ -11,7 +11,6 @@ import uuid
 # Defaults (you can change these later)
 DEFAULT_HOST = "WIN-LAB-01"
 DEFAULT_USER = "corp\\alice"
-OUTPUT_FILE = "events.jsonl"
 
 def ts_now():
     return datetime.now(timezone.utc).isoformat()
@@ -49,6 +48,9 @@ def main():
     scenario = load_scenario(scenario_path)
     scenario_name = scenario.get("name", "unnamed-scenario")
     steps = scenario.get("steps", [])
+
+    # ✅ Automatically name the output file after the scenario
+    OUTPUT_FILE = f"events_{scenario_name.replace(' ', '_').lower()}.jsonl"
 
     with open(OUTPUT_FILE, "w", encoding="utf8") as out_f:
         for step in steps:

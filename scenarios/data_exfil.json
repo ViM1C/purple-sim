@@ -1,0 +1,27 @@
+﻿{
+  "name": "Data Exfiltration (synthetic)",
+  "description": "Simulated data exfiltration scenario for testing detection rules.",
+  "steps": [
+    {
+      "id": 1,
+      "type": "ProcessCreate",
+      "tactic": "Execution",
+      "technique_id": "T1059",
+      "fields": {
+        "process_name": "powershell.exe",
+        "command_line": "powershell -c Compress-Archive C:\\Reports C:\\temp\\data.zip"
+      }
+    },
+    {
+      "id": 2,
+      "type": "NetworkConnect",
+      "tactic": "Exfiltration",
+      "technique_id": "T1041",
+      "fields": {
+        "dst_ip": "10.0.55.22",
+        "dst_port": 22,
+        "protocol": "SSH"
+      }
+    }
+  ]
+}
